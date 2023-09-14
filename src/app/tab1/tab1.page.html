@@ -7,11 +7,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button expand="block" (click)="buscarUsuarios()">
+    Buscar todos
+  </ion-button>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-item>
+    <ion-input label="Digite um ID:" [(ngModel)]="id"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="buscarPorID()">
+    Buscar por ID
+  </ion-button>
+
+  <div *ngIf="usuario">
+    <h2 style="color:blue">Resultado da Busca:</h2>
+    <ion-item>
+      <ion-badge>{{usuario.id}}</ion-badge>
+      <ion-label>
+        <h3>{{usuario.nome}}</h3>
+        <p>{{usuario.email}}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <ion-item *ngFor="let user of listaUsuarios">
+  <ion-badge>{{user.id}}</ion-badge>
+  <ion-label>
+    <h3>{{user.nome}}</h3>
+    <p>{{user.email}}</p>
+  </ion-label>      
+  </ion-item>
 </ion-content>
