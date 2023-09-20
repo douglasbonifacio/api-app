@@ -7,10 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button expand="block" (click)="buscarUsuarios()">
-    Buscar todos
-  </ion-button>
-
+ 
   <ion-item>
     <ion-input label="Digite um ID:" [(ngModel)]="id"></ion-input>
   </ion-item>
@@ -18,10 +15,15 @@
     Buscar por ID
   </ion-button>
 
+  <ion-button expand="block" (click)="buscarUsuarios()">
+    Limpar Filtro
+  </ion-button>
+
+
   <div *ngIf="usuario">
     <h2 style="color:blue">Resultado da Busca:</h2>
     <ion-item>
-      <ion-badge>{{usuario.id}}</ion-badge>
+      <ion-badge slot="start">{{usuario.id}}</ion-badge>
       <ion-label>
         <h3>{{usuario.nome}}</h3>
         <p>{{usuario.email}}</p>
@@ -30,10 +32,17 @@
   </div>
 
   <ion-item *ngFor="let user of listaUsuarios">
-  <ion-badge>{{user.id}}</ion-badge>
+  <ion-badge slot="start">{{user.id}}</ion-badge>
   <ion-label>
     <h3>{{user.nome}}</h3>
     <p>{{user.email}}</p>
   </ion-label>      
   </ion-item>
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button routerLink="/cadastro-usuario">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
