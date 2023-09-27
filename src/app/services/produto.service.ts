@@ -6,7 +6,7 @@ import { EMPTY, Observable, catchError, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class ProdutoService {
 
   // Criar a variavel com a URL da API
   private url = 'http://localhost:3000/produtos';

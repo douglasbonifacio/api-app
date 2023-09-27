@@ -7,16 +7,19 @@ import { ProdutoService } from '../services/produto.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit{
 
   listaProdutos: Produto[] = [];
   produto?: Produto;
   id: number = 0;
+  descricao?: any;
+  validade: any;
+  preco: number = 0;
 
   /** Para buscar dados da API, depois de criar o serviço
       Temos que instanciar em uma variavel o serviço criado
   **/
-  constructor(private userService: ProdutoService
+  constructor(private prodService: ProdutoService
     ) {}
 
   // Criar os metodos que conversam com a API
@@ -27,15 +30,15 @@ export class Tab2Page {
   //e enviamos ela para uma função anônima dentro da função vamos adicionar o retorno a variavel local
 
   buscarProdutos(){
-    this.userService.getAll().subscribe(retorno =>{
-      // "as Usuario[]" tenta converter o retorno para este tipo
+    this.prodService.getAll().subscribe(retorno =>{
+      // "as Produto[]" tenta converter o retorno para este tipo
       this.listaProdutos = retorno as Produto[];
       console.log(this.listaProdutos);
       this.produto = undefined;
     });
   }
   buscarPorID(){
-    this.userService.getOne(this.id).subscribe(retorno =>{
+    this.prodService.getOne(this.id).subscribe(retorno =>{
       console.log(retorno);
       this.produto = retorno as Produto;
       this.listaProdutos = [];

@@ -11,19 +11,19 @@ export class CadastroProdutoPage implements OnInit {
 
   produto: Produto = {
     nome: '',
-    preco: '',
-    tipo: '',
-    marca: ''
+    decricao: '',
+    validade: '',
+    preco: 0
   };
 
-  constructor(private UserService: ProdutoService) { }
+  constructor(private prodService: ProdutoService) { }
 
   ngOnInit() {
   }
 
   salvarProduto(){
-    this.UserService.salvar(this.usuario).subscribe(retorno => {
-      this.usuario = retorno;
-      alert("Sucesso! usuario: [" + this.usuario.id + "] foi salvo");
+    this.prodService.salvar(this.produto).subscribe(retorno => {
+      this.produto = retorno;
+      alert("Sucesso! produto: [" + this.produto.id + "] foi salvo");
     });    
 }

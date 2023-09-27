@@ -11,21 +11,22 @@
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="produto.preco"
+    <ion-input [(ngModel)]="produto.descricao"
     label="Preco:" labelPlacement="floating" placeholder="Digite o preco"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="produto.tipo" 
+    <ion-input [(ngModel)]="produto.validade" 
     label="Tipo:" labelPlacement="floating" placeholder="Digite o tipo do produto"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-input [(ngModel)]="produto.marca" 
+    <ion-input [(ngModel)]="produto.preco" 
     label="Marca:" labelPlacement="floating" placeholder="Marca"></ion-input>
   </ion-item>
 
   <ion-button (click)="salvarProduto()" expand="full" color="success">SALVAR</ion-button>
   <ion-button routerLink="/" expand="full" fill="clear" color="dark">VOLTAR</ion-button>
+  
 
 </ion-content>
