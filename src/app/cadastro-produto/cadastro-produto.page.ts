@@ -11,10 +11,11 @@ export class CadastroProdutoPage implements OnInit {
 
   produto: Produto = {
     nome: '',
-    decricao: '',
+    descricao: '',
     validade: '',
     preco: 0
   };
+
 
   constructor(private prodService: ProdutoService) { }
 
@@ -23,7 +24,8 @@ export class CadastroProdutoPage implements OnInit {
 
   salvarProduto(){
     this.prodService.salvar(this.produto).subscribe(retorno => {
-      this.produto = retorno;
+    this.produto = retorno;
       alert("Sucesso! produto: [" + this.produto.id + "] foi salvo");
     });    
+}
 }

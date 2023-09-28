@@ -22,6 +22,7 @@ export class ProdutoService {
   // Para o READ, teremos 2 métodos
 
   //1 busca todos os regristros
+  
   public getAll(): Observable<Produto[]>{
     //Retorna a busca de dados na URL da API
     return this.http.get<Produto[]>(this.url).pipe(
