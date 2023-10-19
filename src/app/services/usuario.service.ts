@@ -48,4 +48,10 @@ export class UsuarioService {
       catchError(erro => this.exibirErro(erro))
     );
   }
+  alterar(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.url}/${usuario.id}`, usuario).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+  }
 }
